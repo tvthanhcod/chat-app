@@ -1,38 +1,57 @@
-.App {
-  text-align: center;
+.app__wrapper {
+    width: 900px;
+    height: 500px;
+    background-color: pink;
+    color: white;
+    font-size: 1.3rem;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.login__wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.login__title {
+    width: 300px;
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin-bottom: 20px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.login__button-wrapper {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
 }
-
-.App-link {
-  color: #61dafb;
+.Login__button-item {
+    width: 100%;
+    height: 35px;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8px 0;
+    color: white;
+    background-color: transparent;
+    transition: all .8s;
+    cursor: pointer;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-fb:hover {
+    background-color: #0F90F3;
+    color: white;
+    border-color: #0F90F3;
+}
+.btn-gg:hover {
+    background-color: #D54D6F;
+    color: white;
+    border-color: #D54D6F;
+}
+.mainchat__wrapper {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    z-index: 100;
 }
