@@ -1,5 +1,7 @@
 
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+
+import AuthProvider from './components/store/AuthProvider';
 
 import { Login, MainChat } from './components'
 
@@ -9,10 +11,12 @@ const App = () => {
   return (
     <div className='app__wrapper'>
       <Router>
-        <Routes>
-          <Route path='/' exact element={ <MainChat />}/>
-          <Route path='/login' element={ <Login />}/>
-        </Routes>
+        <AuthProvider>
+          <Switch>
+            <Route path='/login' component={Login}/>
+            <Route path='/' component={MainChat}/>
+          </Switch>
+        </AuthProvider>
       </Router>
     </div>
   );

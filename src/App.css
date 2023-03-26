@@ -1,18 +1,31 @@
 .app__wrapper {
     width: 900px;
     height: 500px;
-    background-color: pink;
-    color: white;
+    color: #333;
     font-size: 1.3rem;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow:
+  4.5px 4.5px 3.6px rgba(0, 0, 0, 0.017),
+  12.5px 12.5px 10px rgba(0, 0, 0, 0.025),
+  30.1px 30.1px 24.1px rgba(0, 0, 0, 0.033),
+  100px 100px 80px rgba(0, 0, 0, 0.05)
+;
+}
+.wrap__all {
+    width: 100%;
+    height: 100%;
 }
 .login__wrapper {
     width: 100%;
     height: 100%;
     display: flex;
+    background-color: pink;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    color: white;
 }
 .login__title {
     width: 300px;
@@ -52,6 +65,122 @@
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1.5fr 3fr;
     z-index: 100;
+}
+/* sidebar */
+.sidebar__wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+/* siderbar header */
+.header__wrapper {
+    background-color: #f397a9;
+    width: 100%;
+    height: 55p;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 5px;
+}
+.header__user-info {
+    width: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.header__avatar {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #f1f1f1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    margin-right: 10px;
+}
+.header__btn-logout button{
+    width: 80px;
+    height: 45px;
+    border: 1px solid white;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 4px;
+    color: white;
+    cursor: pointer;
+}
+.sidebarlist__wrapper {
+    width: 100%;
+    height: 100%;
+    background-color: #f3cbd6;
+    padding: 10px 20px;
+}
+.sidebarlist__addRoom {
+    width: 100%;
+    height: 35px;
+    display: flex;
+    align-items: center;
+}
+.addRoom__btn {
+    display: flex;
+    color: white;
+    font-size: 1.4rem;
+}
+.addRoom__btn span {
+    margin-right: 10px;
+}
+/* chatroom */
+.chatroom__wrapper {
+    border: 1px solid #f1f1f1;
+    border-left: none;
+}
+/* select component */
+.select__wrapper {
+    width: 100%;
+    height: auto;
+    color: white;
+    font-size: 1.3rem;
+}
+.select__box {
+    width: 100%;
+    height: auto;
+    position: relative;
+    width: 100%;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.4rem;
+}
+.select__box span {
+    transition: all .5s;
+}
+.select__box span:hover {
+    transform: rotate(180deg);
+}
+.select__option {
+    position: absolute;
+    width: 100%;
+    list-style: none;
+    top: 100%;
+    left: 0;
+    display: none;
+}
+.select__box span:hover .select__option {
+    display: block;
+}
+
+.select__option-item {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10px;
 }

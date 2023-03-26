@@ -4,8 +4,8 @@ import ChatRoom from "./chatroom/ChatRoom"
 const MainChat = () => {
     return (
         <div className="mainchat__wrapper">
-            <div><Sidebar /></div>
-            <div><ChatRoom /></div>
+            <Sidebar />
+            <ChatRoom />
         </div>
     )
 }

@@ -1,8 +1,16 @@
 
 
+import Header from "./Header"
+import SidebarList from "./SidebarList"
+
 const Sidebar = () => {
+
+
     return (
-        <div>This is sidebar</div>
+        <div className="sidebar__wrapper">
+            <Header />
+            <SidebarList />
+        </div>
     )
 }
 

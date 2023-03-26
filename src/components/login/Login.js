@@ -5,6 +5,7 @@ import { signInWithPopup } from 'firebase/auth'
 
 const Login = () => {
 
+
     const handleLoginWithGG = () => {
        
     }
@@ -23,5 +24,4 @@ const Login = () => {
         </div>
     )
 }
-
 export default Login

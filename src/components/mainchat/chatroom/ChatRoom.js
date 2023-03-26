@@ -2,7 +2,9 @@
 
 const ChatRoom = () => {
     return (
-        <>This is chat room</>
+        <div className="chatroom__wrapper">
+            
+        </div>
     )
 }
 
