@@ -16,7 +16,7 @@ const Select = () => {
                         <li className="select__option-item">Room 3</li>
                         <li className="select__option-item">Room 4</li>
                     </ul>
-            </div>
+             </div>
         </div>
     )
 }
