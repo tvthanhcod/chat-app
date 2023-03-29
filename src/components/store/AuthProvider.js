@@ -12,7 +12,6 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unSubcribe = onAuthStateChanged(auth, (user) => {
             if(user) {
-                console.log(user)
                 setUserData(user)
                 history.push("/")
                 return

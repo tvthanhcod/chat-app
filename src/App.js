@@ -2,6 +2,7 @@
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 import AuthProvider from './components/store/AuthProvider';
+import AppProvider from './components/store/AppProvider';
 
 import { Login, MainChat } from './components'
 
@@ -12,10 +13,12 @@ const App = () => {
     <div className='app__wrapper'>
       <Router>
         <AuthProvider>
-          <Switch>
-            <Route path='/login' component={Login}/>
-            <Route path='/' component={MainChat}/>
-          </Switch>
+            <AppProvider>
+              <Switch>
+                <Route path='/login' component={Login}/>
+                <Route path='/' component={MainChat}/>
+              </Switch>
+            </AppProvider>
         </AuthProvider>
       </Router>
     </div>

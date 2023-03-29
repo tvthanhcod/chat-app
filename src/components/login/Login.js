@@ -1,7 +1,10 @@
 import { auth, fbProvider } from '../firebase/config'
 
 
-import { signInWithPopup } from 'firebase/auth'
+import { signInWithPopup, getAdditionalUserInfo,  } from 'firebase/auth'
+
+import { addCollection } from '../firebase/services'
+
 
 const Login = () => {
 
@@ -10,8 +13,21 @@ const Login = () => {
        
     }
 
-    const handleLoginWithFB = () => {
-        signInWithPopup(auth, fbProvider)
+    const handleLoginWithFB = async() => {
+       const data = await signInWithPopup(auth, fbProvider)
+       const { isNewUser, profile, providerId} = getAdditionalUserInfo(data)
+       const { email, name, id, picture } = profile
+
+       if( isNewUser ) {
+            const data = {
+                displayName: name,
+                email: email,
+                photoURL: picture.data.url,
+                uid: id,
+                providerId: providerId
+            }
+            addCollection('users', data)
+       }
     }
 
     return (

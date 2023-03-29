@@ -7,13 +7,18 @@ import { AuthContext } from "../../store/AuthProvider"
 const Header = () => {
 
     const data = useContext(AuthContext)
-    console.log(data)
-    const { displayName } = data
+    const { displayName, photoURL } = data
 
     return (
         <div className="header__wrapper">
             <div className="header__user-info">
-                <div className="header__avatar">T</div>
+                <div className="header__avatar">
+                    { photoURL ?
+                        <img src={photoURL} alt="AVATAR"/>
+                    :
+                     <p>{displayName?.charAt(0)}</p>
+                    }
+                </div>
                 <span className="header__name-user">{displayName}</span>
             </div>
             <div className="header__btn-logout" onClick={() => { signOut(auth) }}>
