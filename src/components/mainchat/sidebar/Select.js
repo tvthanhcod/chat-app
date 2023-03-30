@@ -1,7 +1,12 @@
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { AppContext } from "../../store/AppProvider"
+import { useContext } from "react"
 
 const Select = () => {
+
+    const { rooms, setSelectedRoomId } = useContext(AppContext)
+
     return (
         <div className="select__wrapper">
             <div className="select__box">
@@ -11,10 +16,14 @@ const Select = () => {
                     </span>
 
                     <ul className="select__option">
-                        <li className="select__option-item">Room 1</li>
-                        <li className="select__option-item">Room 2</li>
-                        <li className="select__option-item">Room 3</li>
-                        <li className="select__option-item">Room 4</li>
+                        { rooms !== undefined && rooms.length > 0 ? rooms.map(room => {
+                            return (
+                                <li key={room.id} className="select__option-item" onClick={() => setSelectedRoomId(room.id)}>{room.name}</li>
+                            )
+                        })
+                        :
+                        <></>
+                        }
                     </ul>
              </div>
         </div>

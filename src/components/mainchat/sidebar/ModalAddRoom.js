@@ -1,12 +1,17 @@
 import { useState, useContext } from "react"
 import { AppContext } from "../../store/AppProvider"
+import { auth } from "../../firebase/config"
 
-const ModalAddRoom = ({ receiveDataFromModalRoom  }) => {
+import { addCollection } from "../../firebase/services"
+
+const ModalAddRoom = () => {
 
     const { setShowModalRoom } = useContext(AppContext)
 
     const [inputName, setInputName] = useState('')
     const [inputDescription, setInputDescription] = useState('')
+
+    const { uid } = auth.currentUser
 
     const resetData = () => {
         setInputName('')
@@ -15,13 +20,18 @@ const ModalAddRoom = ({ receiveDataFromModalRoom  }) => {
     }
 
     const handleDataInput = () => {
-        const data = {
-            name: inputName,
-            description: inputDescription
+        if(inputName !== '' && inputDescription !== '') {
+            const data = {
+                name: inputName,
+                description: inputDescription,
+                members: [uid]
+            }
+    
+            addCollection('rooms', data)
+            resetData()
+            return
         }
-
-        receiveDataFromModalRoom(data)
-        resetData()
+        alert('input initvalue!!!')
     }
 
     return (
@@ -45,7 +55,7 @@ const ModalAddRoom = ({ receiveDataFromModalRoom  }) => {
                         />
                     </div>
                     <div className="modal__btn-box">
-                        <button className="modal__btn btn__cancle" onClick={() => resetData()}>CANCLE</button>
+                        <button className="modal__btn btn__cancel" onClick={() => resetData()}>Cancel</button>
                         <button className="modal__btn btn__ok" onClick={handleDataInput}>OK</button>
                     </div>
                 </div>

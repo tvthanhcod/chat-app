@@ -1,3 +1,7 @@
+body {
+    background-color:#f7dce3;
+}
+
 .app__wrapper {
     width: 900px;
     height: 500px;
@@ -69,6 +73,8 @@
 }
 /* sidebar */
 .sidebar__wrapper {
+    font-size: 1.4rem;
+    font-weight: 400;
     width: 100%;
     height: 100%;
     display: flex;
@@ -149,6 +155,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: white;
 }
 /* select component */
 .select__wrapper {
@@ -190,6 +197,8 @@
 }
 
 .select__option-item {
+    font-size: 1.2rem;
+    font-weight: 400;
     width: 100%;
     height: 30px;
     display: flex;
@@ -198,9 +207,10 @@
     padding-left: 10px;
     color: black;
     cursor: pointer;
+    transition: all .4s;
 }
 .select__option-item:hover {
-    color: green;
+    color: #f397a9;
 }
 
 /* tooltip */
@@ -246,6 +256,16 @@
     justify-content: space-between;
     border-bottom: 1px solid #f1f1f1;
 }
+.name__room {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f397a9;
+}
+.description__room {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #333;
+}
 .memberofroom {
     display: flex;
 }
@@ -254,6 +274,7 @@
     border: none; 
     outline: none;
     margin-right: 15px;
+    color: #999;
 }
 .member__box {
     width: auto;
@@ -293,14 +314,54 @@
     overflow-y: auto;
 }
 .message__wrapper {
-    width: 30%;
+    width: 50%;
+    max-width: 60%; 
     border-radius: 10px;
-    height: auto;
+    min-height: 40px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     margin: 28px 0;
     background-color: #f1f1f1;
+    padding: 10px 0;
+    padding-left: 8px;
+}
+.message__avatar {
+    min-width: 20px;
+    height: 20px;
+    border: 1px solid #f1f1f1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    margin-right: 16px;
+    overflow: hidden;
+}
+.message__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.mess__name-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+}
+.mess__displayName {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-right: 40px;
+}
+.mess__createAt {
+    font-size: 0.9rem;
+}
+.mess__text {
+    /* max-width: 90%; */
+    margin-top: 5px;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 /* modal */
 .modal__wrapper {
@@ -325,11 +386,12 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 10px;
+    padding: 20px;
     width: 390px;
     height: 200px;
     background-color: white;
     color: #333;
+    border-radius: 10px;
 }
 .modalRoom__item {
     with: 100%;
@@ -346,6 +408,9 @@
     height: 100%;
     outline: none;
     padding-left: 10px;
+    border: none;
+    border-bottom: 1px solid #333;
+    font-size: 1.2rem;
 }
 .modal__btn-box {
     width: 100%;
@@ -356,18 +421,28 @@
 }
 .modal__btn {
     width: 65px;
-    height: 45px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     border: none;
     outline: none;
     font-size: 1.1rem;
+    font-weight: 500;
     cursor: pointer;
 }
 .btn__ok {
     margin-left: 10px;
     background-color: pink;
     color: white;
+}
+.title__flatform {
+    display: none;
+}
+
+@media screen and (max-width: 700px) {
+    body {
+        visibility: hidden;
+    }
 }
 

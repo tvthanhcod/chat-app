@@ -6,8 +6,8 @@ import { signInWithPopup, getAdditionalUserInfo,  } from 'firebase/auth'
 import { addCollection } from '../firebase/services'
 
 
-const Login = () => {
 
+const Login = () => {
 
     const handleLoginWithGG = () => {
        
@@ -16,14 +16,15 @@ const Login = () => {
     const handleLoginWithFB = async() => {
        const data = await signInWithPopup(auth, fbProvider)
        const { isNewUser, profile, providerId} = getAdditionalUserInfo(data)
-       const { email, name, id, picture } = profile
+       const { user: { uid } } = data
+       const { email, name, picture } = profile
 
        if( isNewUser ) {
             const data = {
                 displayName: name,
                 email: email,
                 photoURL: picture.data.url,
-                uid: id,
+                uid: uid,
                 providerId: providerId
             }
             addCollection('users', data)
