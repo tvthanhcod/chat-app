@@ -8,6 +8,7 @@ export const AppContext = createContext()
 const AppProvider = ({ children }) => {
     const { uid } = useContext(AuthContext)
     const [showModalRoom, setShowModalRoom] = useState(false)
+    const [showModalInvite, setShowModalInvite] = useState(false)
     const [selectedRoomId, setSelectedRoomId] = useState('')
 
     /* get data rooms */
@@ -59,7 +60,9 @@ const AppProvider = ({ children }) => {
                 selectedRoomId, 
                 setSelectedRoomId,
                 members,
-                messages
+                messages,
+                showModalInvite,
+                setShowModalInvite
             }}    
         >
             {children}

@@ -2,13 +2,13 @@ import Tooltip from "./Tooltip"
 import { useContext } from "react"
 import { AppContext } from "../../store/AppProvider"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faPlus, faUserPlus } from "@fortawesome/free-solid-svg-icons"
+import { faUserPlus } from "@fortawesome/free-solid-svg-icons"
 
 
 const HeaderChatRoom = ({ roomInfo }) => {
 
     const { members } = useContext(AppContext)
-
+    const { setShowModalInvite } = useContext(AppContext)
     
     return (
         <div className="headerchatroom__wrapper">
@@ -17,7 +17,7 @@ const HeaderChatRoom = ({ roomInfo }) => {
                 <div className="description__room">{roomInfo.description}</div>
             </div>
             <div className="memberofroom">
-                <button className="invite_user">
+                <button className="invite_user" onClick={() => setShowModalInvite(true)}>
                     <FontAwesomeIcon icon={faUserPlus}/>
                 </button>
                 <div className="member__box">

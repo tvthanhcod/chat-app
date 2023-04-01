@@ -1,6 +1,6 @@
 import { auth, fbProvider } from '../firebase/config'
 
-
+import { generateKeywords } from '../firebase/services'
 import { signInWithPopup, getAdditionalUserInfo,  } from 'firebase/auth'
 
 import { addCollection } from '../firebase/services'
@@ -25,7 +25,8 @@ const Login = () => {
                 email: email,
                 photoURL: picture.data.url,
                 uid: uid,
-                providerId: providerId
+                providerId: providerId,
+                keywords: generateKeywords(name)
             }
             addCollection('users', data)
        }

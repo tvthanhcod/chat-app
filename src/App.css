@@ -10,11 +10,13 @@ body {
     border-radius: 3px;
     overflow: hidden;
     box-shadow:
-  4.5px 4.5px 3.6px rgba(0, 0, 0, 0.017),
-  12.5px 12.5px 10px rgba(0, 0, 0, 0.025),
-  30.1px 30.1px 24.1px rgba(0, 0, 0, 0.033),
-  100px 100px 80px rgba(0, 0, 0, 0.05)
-;
+    0.9px 0.6px 2.2px rgba(0, 0, 0, 0.031),
+    2.1px 1.3px 5.3px rgba(0, 0, 0, 0.044),
+    4px 2.5px 10px rgba(0, 0, 0, 0.055),
+    7.1px 4.5px 17.9px rgba(0, 0, 0, 0.066),
+    13.4px 8.4px 33.4px rgba(0, 0, 0, 0.079),
+    32px 20px 80px rgba(0, 0, 0, 0.11)
+  ;
 }
 .wrap__all {
     width: 100%;
@@ -108,6 +110,12 @@ body {
     font-weight: 700;
     margin-right: 10px;
     overflow: hidden;
+    margin-left: -20px;
+    z-index: 10;
+}
+.header__avatar:first-child {
+    margin: 0;
+    z-index: 100;
 }
 .header__avatar img {
     width: 100%;
@@ -277,7 +285,8 @@ body {
     color: #999;
 }
 .member__box {
-    width: auto;
+    max-width: 150px;
+    overflow: hidden;
 }
 .input__wrapper {
     width: 100%;
@@ -392,6 +401,68 @@ body {
     background-color: white;
     color: #333;
     border-radius: 10px;
+}
+.modalInvite__content {
+    padding: 20px;
+    width: 400px;
+    height: 400px;
+    background-color: white;
+    color: #333;
+    border-radius: 10px;
+}
+.modalInvite__item {
+    width: 100%;
+    height: 35px;
+}
+.modalInvite__item span {
+    margin-right: 20px;
+}
+.modalInvite__item input {
+    border: none;
+    outline: none;
+    height: 100%;
+    width: 200px;
+}
+.user__suggest-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 18px 0;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border-top: 1px solid #f1f1f1;
+    border-bottom: 1px solid #f1f1f1;
+}
+.user__suggest-item {
+    width: 60px;
+    height: 60px;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    cursor: pointer;
+}
+.user__suggest-item img {
+    margin-bottom: 3px;
+}
+.result__user {
+    width: 100%;
+    height: auto;
+}
+.result__user-item {
+    width: 100%;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    background-color: #f1f1f1;
+    color: #333;
+    padding: 0 10px;
+    margin: 8px 0;
+}
+.result__user-item p {
+    margin-right: 250px;
 }
 .modalRoom__item {
     with: 100%;

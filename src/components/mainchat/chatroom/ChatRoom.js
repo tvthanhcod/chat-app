@@ -24,7 +24,21 @@ const ChatRoom = () => {
                     <Input />
                 </>
                 :
-                <>Chọn Phòng Chat đê!!!</>
+                <>
+                    <div 
+                        style={
+                            {   width: '100%', 
+                                height: '55px', 
+                                display: 'flex', 
+                                alignItems: 'center',
+                                justifyContent: 'flex-start',
+                                paddingLeft: '20px',
+                                backgroundColor: 'pink',
+                                color: 'white'
+                                
+                            }
+                        }>Chọn Phòng Chat đê!!!</div>
+                </>
             }
         </div>
     )
