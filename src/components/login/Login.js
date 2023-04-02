@@ -1,4 +1,4 @@
-import { auth, fbProvider } from '../firebase/config'
+import { auth, fbProvider, ggProvider } from '../firebase/config'
 
 import { generateKeywords } from '../firebase/services'
 import { signInWithPopup, getAdditionalUserInfo,  } from 'firebase/auth'
@@ -9,8 +9,23 @@ import { addCollection } from '../firebase/services'
 
 const Login = () => {
 
-    const handleLoginWithGG = () => {
-       
+    const handleLoginWithGG = async() => {
+        const data = await signInWithPopup(auth, ggProvider)
+        const { isNewUser, profile, providerId} = getAdditionalUserInfo(data)
+        const { user: { uid } } = data
+        const { email, name, picture } = profile
+        console.log(isNewUser, profile)
+        if( isNewUser ) {
+            const data = {
+                displayName: name,
+                email: email,
+                photoURL: picture,
+                uid: uid,
+                providerId: providerId,
+                keywords: generateKeywords(name)
+            }
+            addCollection('users', data)
+       }
     }
 
     const handleLoginWithFB = async() => {

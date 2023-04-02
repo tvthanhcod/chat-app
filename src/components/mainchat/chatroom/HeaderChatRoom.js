@@ -25,7 +25,7 @@ const HeaderChatRoom = ({ roomInfo }) => {
                         const { uid, displayName, photoURL } = member
                         return (
                             <Tooltip key={uid} title={displayName}>
-                                <div className="header__avatar">
+                                <div className="headerMainChat__avatar">
                                     { photoURL ?
                                         <img src={photoURL} alt="AVATAR"/>
                                     :
