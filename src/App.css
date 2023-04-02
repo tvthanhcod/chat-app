@@ -108,9 +108,11 @@ body {
     justify-content: center;
     align-items: center;
     font-weight: 700;
-    margin-right: 30px;
     overflow: hidden;
     z-index: 10;
+}
+.header__name-user {
+    margin-left: 10px;
 }
 .header__avatar:first-child {
     margin: 0;
@@ -135,6 +137,26 @@ body {
 }
 .headerMainChat__avatar:last-child {
     margin: 0;
+}
+.headerInvite__avatar {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #f1f1f1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    overflow: hidden;
+}
+.headerInvite__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.headerInvite__name-user {
+    margin: 0;
+    margin-top: 6px;
 }
 .header__btn-logout button{
     width: 80px;
@@ -441,7 +463,6 @@ body {
 .user__suggest-list {
     list-style: none;
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
     padding: 18px 0;
     margin-top: 20px;
@@ -450,13 +471,23 @@ body {
     border-bottom: 1px solid #f1f1f1;
 }
 .user__suggest-item {
-    width: 60px;
-    height: 60px;
+    /* width: 60px;
+    height: 60px; */
+    margin: 0 8px;
     /* display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center; */
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.user__suggest-item:before {
+    margin: 0;
+}
+.user__suggest-item:after {
+    margin: 0;
 }
 .user__suggest-item img {
     margin-bottom: 3px;

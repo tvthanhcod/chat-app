@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react"
+import { useState, useEffect, useContext, useMemo } from "react"
 import { readDocs } from "../../firebase/services"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -19,11 +19,13 @@ const ModalInviteUser = () => {
     const [userSuggest, setUserSuggest] = useState([])
     const [userSelected, setUserSelected] = useState([])
 
-    const userConditionWithKeyword = {
-        filedName: 'keywords',
-        operator: 'array-contains',
-        value: userInput
-    }
+    const userConditionWithKeyword = useMemo(() => {
+        return {
+            filedName: 'keywords',
+            operator: 'array-contains',
+            value: userInput
+        }
+    },[userInput])
     /* debounce */
     useEffect(() => {
         const timerId = setTimeout(async() => {
@@ -36,7 +38,7 @@ const ModalInviteUser = () => {
         return (
             () => clearTimeout(timerId)
         )
-    }, [userInput])
+    }, [userInput, userConditionWithKeyword])
 
     const updateDocuments = async() => {
         const docRef = doc(db, 'rooms', selectedRoomId)
@@ -97,14 +99,14 @@ const ModalInviteUser = () => {
                                 const { uid, displayName, photoURL } = user
                                 return (
                                 <li key={uid} className="user__suggest-item" onClick={() => handleSelectedUser(uid, displayName)}>
-                                    <div className="header__avatar">
+                                    <div className="headerInvite__avatar">
                                         { photoURL ?
                                             <img src={photoURL} alt="AVATAR"/>
                                         :
                                             <p>{displayName?.charAt(0)}</p>
                                         }
                                     </div>
-                                    <span className="header__name-user">{displayName}</span>
+                                    <span className="headerInvite__name-user">{displayName}</span>
                                 </li>
                                 )
                             })
