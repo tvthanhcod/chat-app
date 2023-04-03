@@ -134,6 +134,10 @@ body {
     font-weight: 700;
     overflow: hidden;
     margin-right: 5px;
+}.headerMainChat__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 .headerMainChat__avatar:last-child {
     margin: 0;
